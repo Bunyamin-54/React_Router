@@ -1,6 +1,7 @@
 import { Form, Link, NavLink, Outlet, useNavigation } from "react-router";
 import { getContacts } from "../data";
 import type { Route } from "./+types/sidebar";
+import { useEffect } from "react";
 
 export async function loader({request}: Route.LoaderArgs) {
   const url = new URL(request.url);
@@ -13,6 +14,15 @@ export default function SidebarLayout({ loaderData }: Route.ComponentProps) {
   const { contacts, q } = loaderData;
 
   const navigation = useNavigation();
+
+
+
+  useEffect(() => {
+     const searchInput = document.querySelector<HTMLInputElement>("#q");
+     if (!searchInput) return;
+
+     searchInput.value = q || "";
+  }, [q]);
 
   navigation.state ===  "loading" && (
     <div id="loading-spinner">
@@ -30,6 +40,7 @@ export default function SidebarLayout({ loaderData }: Route.ComponentProps) {
           <Form id="search-form" role="search">
             <input
               aria-label="Search contacts"
+              defaultValue={q  || ""}
               id="q"
               name="q"
               placeholder="Search"
