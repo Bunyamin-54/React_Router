@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, Outlet } from "react-router";
 
 export default function Dashboard() {
   return (
@@ -21,7 +21,7 @@ export default function Dashboard() {
             </li>
             <li>
               <Link
-                to="/stats"
+                to="/dashboard/stats"
                 className="block px-4 py-3 text-slate-100 rounded-md transition-colors hover:bg-slate-700"
               >
                 Stats
@@ -29,7 +29,7 @@ export default function Dashboard() {
             </li>
             <li>
               <Link
-                to="/blogs"
+                to="/dashboard/blogs"
                 className="block px-4 py-3 text-slate-100 rounded-md transition-colors hover:bg-slate-700"
               >
                 Blogs
@@ -37,7 +37,7 @@ export default function Dashboard() {
             </li>
             <li>
               <Link
-                to="/login"
+                to="/dashboard/settings"
                 className="block px-4 py-3 text-slate-100 rounded-md transition-colors hover:bg-slate-700"
               >
                 Settings
@@ -53,6 +53,7 @@ export default function Dashboard() {
         <p className="text-slate-800">
           Select a page from the sidebar to get started.
         </p>
+        <Outlet />
       </main>
     </div>
   );

@@ -13,6 +13,7 @@ export default [
 
   // nested routes route(url , path, [children]),
   route("/dashboard", "routes/dashboard.tsx", [
+    index("routes/dashboard-main.tsx"),
     route("stats", "routes/stats.tsx"),
     route("blogs", "routes/blogs.tsx"),
     route("settings", "routes/settings.tsx"),
