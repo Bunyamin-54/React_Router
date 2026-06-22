@@ -14,7 +14,7 @@ import { createEmptyContact } from "./data";
 
 export async function action() {
    const contact = await createEmptyContact();
-   return { contact };
+   return  redirect(`/contacts/${contact.id}/edit`);
 }
 
 export default function App() {
