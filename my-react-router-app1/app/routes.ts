@@ -10,8 +10,8 @@ index("routes/home.tsx"),
 // layout
 layout("layouts/auth-layout.tsx", [
 
-    route("./login", "routes/login.tsx"),
-    route("./register", "routes/register.tsx")
+    route("/login", "routes/login.tsx"),
+    route("/register", "routes/register.tsx")
 
 
 ])
