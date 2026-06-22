@@ -99,7 +99,7 @@ export default function SidebarLayout({ loaderData }: Route.ComponentProps) {
         </nav>
       </div>
       <div
-        className={navigation.state === "loading" ? "loading" : ""}
+        className={navigation.state === "loading" && !searching ? "loading" : ""}
         id="detail"
       >
         <Outlet />
