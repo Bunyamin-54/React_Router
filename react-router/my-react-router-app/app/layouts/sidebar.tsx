@@ -36,7 +36,9 @@ export default function SidebarLayout({ loaderData }: Route.ComponentProps) {
             <ul>
               {contacts.map((contact) => (
                 <li key={contact.id}>
-                  <NavLink to={`contacts/${contact.id}`}>
+                  <NavLink
+                  className={({ isActive, isPending }) => (isActive ? "active" : isPending ? "pending" : "")}
+                  to={`contacts/${contact.id}`}>
                     {contact.first || contact.last ? (
                       <>
                         {contact.first} {contact.last}
