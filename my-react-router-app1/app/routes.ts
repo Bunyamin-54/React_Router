@@ -5,7 +5,7 @@ export default [
 
   // singel route iki tane parrameter aliyor  url ve path kismini  componenint yolu 
   route("/about", "routes/about.tsx"),
-  // layout
+  // layout ortak kullanim 
   layout("layouts/auth-layout.tsx", [
     route("/login", "routes/login.tsx"),
     route("/register", "routes/register.tsx"),
