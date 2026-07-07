@@ -9,10 +9,11 @@ export default function AuthLayout() {
                 <img src='https://picsum.photos/100/100' alt='Lee Consultation' className='rounded-lg shadow-lg' />
                 <p>Lorem ipsum dolor sit amet consectet!</p>
             </div>
-
-            // layout sayfasini daki cildirenleri ifade ediyor outlet
             <Outlet /> 
         </div>
   
   );
 }
+
+
+// layout sayfasini daki cildirenleri ifade ediyor outlet
