@@ -1,9 +1,9 @@
 import { type RouteConfig, index, layout, route } from "@react-router/dev/routes";
 
 export default [
-  index("routes/home.tsx"),
+  index("routes/home.tsx"), // route functiunu kullnamis oluyor aslinda react routerdan 
 
-  // singel route
+  // singel route iki tane parrameter aliyor  url ve path kismini  componenint yolu 
   route("/about", "routes/about.tsx"),
   // layout
   layout("layouts/auth-layout.tsx", [
