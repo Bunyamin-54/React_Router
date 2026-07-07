@@ -23,14 +23,17 @@ export default [
  // posts/id
  // posts/new
  // url, childerenler 
+
  ...prefix("posts", [
     index("routes/posts.tsx"),
     route(":id" , "routes/post-detail.tsx"),
     route("new", "routes/post-new.tsx")
  ])
+,
 
+ // Asterixs 
 
-
+route("*", "routes/not-found.tsx")
 
 
 
