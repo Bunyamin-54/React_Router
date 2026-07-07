@@ -10,7 +10,7 @@ export default [
     route("/login", "routes/login.tsx"),
     route("/register", "routes/register.tsx"),
   ]),
-
+// test
   // nested routes route(url , path, [children]),
   route("/dashboard", "routes/dashboard.tsx", [
     index("routes/dashboard-main.tsx"),
