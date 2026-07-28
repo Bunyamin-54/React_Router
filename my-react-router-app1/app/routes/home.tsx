@@ -7,8 +7,8 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Welcome to React Router!" },
   ];
 }
- // veri cekme icin kullnaidigmiz function react routerdaki  loader()
- 
+ // veri cekme icin kullandigimiz function react routerdaki  loader()
+
 export async function loader() {
   const res = await fetch("https://6a4d62d1e1cf82a4a17e544d.mockapi.io/Blogs"); 
   return res.json()

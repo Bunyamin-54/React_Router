@@ -1,7 +1,9 @@
+import type React from "react";
 import { Link } from "react-router";
+import type { Route } from "./+types/about";
 
 
-export default function About() {
+export default function About({ loaderData, actionData, params, matches } :Route.ComponentProps    ) {
   return (
     <div className="container mx-auto p-4 text-center">
       <h1>About Us</h1>
