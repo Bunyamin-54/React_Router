@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router";
+import { Link, Outlet, redirect } from "react-router";
 
 export default function Dashboard() {
   return (
@@ -60,3 +60,16 @@ export default function Dashboard() {
     </div>
   );
 }
+
+async function authMiddleware({ request, context }, next) {
+  const userId = ""; // dumy user data
+
+  if (!userId) {
+    throw redirect("/login");
+  }
+
+  return await next();
+}
+
+export const clientMiddleware = [authMiddleware];
+export const middleware = [authMiddleware];

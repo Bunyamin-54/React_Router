@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, redirect } from "react-router";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -50,3 +50,17 @@ export default function Home({loaderData, actionData, params, matches}: Route.Co
     </div>
   );
 }
+
+
+// async function authMiddleware({ request, context }, next) {
+
+//   const userId = ""; // dumy user data 
+
+//   if (!userId) {
+//     throw redirect("/login");
+//   }
+
+//   next()
+// }
+
+// export const middleware = [authMiddleware];
