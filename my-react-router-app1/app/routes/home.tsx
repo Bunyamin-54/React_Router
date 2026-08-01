@@ -11,8 +11,14 @@ export function meta({}: Route.MetaArgs) {
 
 export async function loader() {
   const res = await fetch("https://6a4d62d1e1cf82a4a17e544d.mockapi.io/Blogs"); 
+
+  console.log("loader data:", res)
   return res.json()
 }
+
+ // server tarafinda loader funckoynu fetch eder server backende
+
+ // cliend tarafinda ise clientLoader () functionu ile yapriz 
 export default function Home({loaderData, actionData, params, matches}: Route.ComponentProps) {
   return (
     <div className="container mx-auto p-4 text-center">
