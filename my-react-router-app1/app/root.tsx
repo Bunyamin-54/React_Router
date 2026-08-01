@@ -73,3 +73,35 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     </main>
   );
 }
+
+// middelware  Middleware is a type of software that acts as a bridge between different applications, databases, and operating systems. 
+// Often called "software glue", it helps separate systems communicate, share data, and work together without needing custom code.
+// Common Uses of MiddlewareAuthentication: Checks user passwords and login safety before granting access.Logging: Records web traffic and system events to help find and fix errors.
+// Data Management: Connects different databases and lets separate programs exchange information smoothly.
+
+// async function loggingMiddleware({ request, context }, next) {
+//   console.log(`${new Date().toISOString()} ${request.method} ${request.url}`);
+//   const start = performance.now();
+//   const response = await next();
+//   const duration = performance.now() - start;
+//   console.log(
+//     `${new Date().toISOString()} Response ${response.status} (${duration}ms)`,
+//   );
+//   return response;
+// }
+
+// export const middleware = [loggingMiddleware];
+
+async function authMiddleware({ request, context }) {
+  const session = await getSession(request);
+  const userId = session.get("userId");
+
+  if (!userId) {
+    throw redirect("/login");
+  }
+
+  const user = await getUserById(userId);
+  context.set(userContext, user);
+}
+
+export const middleware = [authMiddleware];
