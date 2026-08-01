@@ -22,13 +22,12 @@ export async function loader() {
 export default function Home({loaderData, actionData, params, matches}: Route.ComponentProps) {
   return (
     <div className="container mx-auto p-4 text-center">
-  
-        {/* <h1>Welcome to My Route with Props!</h1> */}
-        {/* <p>Loader Data: {JSON.stringify(loaderData)}</p>
+      {/* <h1>Welcome to My Route with Props!</h1> */}
+      {/* <p>Loader Data: {JSON.stringify(loaderData)}</p>
         <p>Action Data: {JSON.stringify(actionData)}</p>
         <p>Route Parameters: {JSON.stringify(params)}</p>
         <p>Matched Routes: {JSON.stringify(matches)}</p> */}
-    
+
       <h1>Welcome to the Home Page</h1>
       <p>This is the home page content.</p>
       <div className="flex flex-col gap-4 mt-4">
@@ -40,6 +39,12 @@ export default function Home({loaderData, actionData, params, matches}: Route.Co
         </Link>
         <Link to="/register" className="underline underline-offset-2">
           Go to Register Page
+        </Link>
+        <Link to="/dashboard" className="underline underline-offset-2">
+          Go to Dashboard Page
+        </Link>
+        <Link to="/posts" className="underline underline-offset-2">
+          Go to Posts
         </Link>
       </div>
     </div>

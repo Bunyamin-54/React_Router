@@ -5,15 +5,17 @@ export default function Dashboard() {
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}
-      <aside className="w-64 bg-slate-900 text-slate-100 p-5 shadow-lg">
+      <aside className="w-64 bg-slate-800 text-slate-100 p-5 shadow-lg">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold">Menu</h2>
+          <Link to="/" className="">
+            <h2 className="text-2xl font-bold">Home</h2>
+          </Link>
         </div>
         <nav>
           <ul className="space-y-2">
             <li>
               <Link
-                to="/"
+                to="/dashboard"
                 className="block px-4 py-3 text-slate-100 rounded-md transition-colors hover:bg-slate-700"
               >
                 Dashboard
