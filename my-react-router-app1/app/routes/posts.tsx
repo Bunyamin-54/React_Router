@@ -49,15 +49,14 @@ const res = await fetch(`${BASE_URL}`, {
   body: JSON.stringify({ name, title }),
 });
 
-return redirect("./posts")
+return redirect("/posts")
 }
   
 export default function PostPage({loaderData, actionData, params, matches}: Route.ComponentProps) {
 
   return (
-    <div>
+    <div className="flex flex-col gap-4 p-4">
       <h1>Posts</h1>
-
       <Form
         method="post"
         navigate={false}
@@ -66,16 +65,15 @@ export default function PostPage({loaderData, actionData, params, matches}: Rout
       >
         <input type="text" name="name" placeholder="Enter post name" />
         <input type="text" name="title" placeholder="Enter post title" />
-        <button type="submit">Add Post</button>
+        <button type="submit" className="bg-amber-600">Add Post</button>
       </Form>
-
       {loaderData?.map((post: any) => (
-        <div key={post.id}>
+        <div key={post.id} className="flex flex-col items-center">
           <Link
             to={`/posts/${post.id}`}
             className="underline underline-offset-2"
           >
-            {post.name}
+            - {post.name}
           </Link>
         </div>
       ))}
