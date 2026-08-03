@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Form, Link } from "react-router";
 import type { Route } from "./+types/posts";
 
 const posts = [
@@ -37,6 +37,17 @@ export default function PostPage({loaderData, actionData, params, matches}: Rout
   return (
     <div>
       <h1>Posts</h1>
+
+      <Form
+        method="post"
+        navigate={false}
+        action="/posts"
+        className="flex flex-col gap-2"
+      >
+        <input type="text" name="name" placeholder="Enter post name" />
+        <button type="submit">Add Post</button>
+      </Form>
+
       {loaderData?.map((post: any) => (
         <div key={post.id}>
           <Link
