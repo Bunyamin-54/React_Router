@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Link } from "react-router";
+import { Form, Link, redirect } from "react-router";
 import type { Route } from "./+types/posts";
 
 const posts = [
@@ -23,26 +23,35 @@ const posts = [
   },
 ];
 
+const BASE_URL = "https://6a4d62d1e1cf82a4a17e544d.mockapi.io/Blogs"
 
  export async function loader() {
-  //  const res = await fetch("https://6a4d62d1e1cf82a4a17e544d.mockapi.io/Blogs");
+   const res = await fetch(BASE_URL);
 
   //  console.log("loader data:", res);
-  //  return res.json();
-  return posts
+   return res.json();
+  //return posts
  }
 
-export async function action({request}:Route.ActionArgs){
+export async function action({request}: Route.ActionArgs){
 
 const formData = await request.formData()
 const name = formData.get("name")
 const title = formData.get("title")
 
-console.log("action form data ", {name, title})
+// console.log("action form data ", {name, title})
 
+const res = await fetch(`${BASE_URL}`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ name, title }),
+});
+
+return redirect("./posts")
 }
   
-
 export default function PostPage({loaderData, actionData, params, matches}: Route.ComponentProps) {
 
   return (
