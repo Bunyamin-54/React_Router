@@ -49,10 +49,10 @@ const res = await fetch(`${BASE_URL}`, {
   body: JSON.stringify({ name, title }),
 });
 
-return redirect("/posts")
+return {ok: res.ok}
 }
   
-export default function PostPage({loaderData, actionData, params, matches}: Route.ComponentProps) {
+export default function PostPage({loaderData}: Route.ComponentProps) {
 
   return (
     <div className="flex flex-col gap-4 p-4">
@@ -62,6 +62,7 @@ export default function PostPage({loaderData, actionData, params, matches}: Rout
         navigate={false}
         action="/posts"
         className="flex flex-col gap-2"
+        
       >
         <input type="text" name="name" placeholder="Enter post name" />
         <input type="text" name="title" placeholder="Enter post title" />
