@@ -62,7 +62,7 @@ export default function PostPage({loaderData}: Route.ComponentProps) {
         navigate={false}
         action="/posts"
         className="flex flex-col gap-2"
-        
+
       >
         <input type="text" name="name" placeholder="Enter post name" />
         <input type="text" name="title" placeholder="Enter post title" />
