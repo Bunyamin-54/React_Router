@@ -25,12 +25,23 @@ const posts = [
 
 
  export async function loader() {
-   const res = await fetch("https://6a4d62d1e1cf82a4a17e544d.mockapi.io/Blogs");
+  //  const res = await fetch("https://6a4d62d1e1cf82a4a17e544d.mockapi.io/Blogs");
 
-   console.log("loader data:", res);
-   return res.json();
+  //  console.log("loader data:", res);
+  //  return res.json();
+  return posts
  }
 
+export async function action({request}:Route.ActionArgs){
+
+const formData = await request.formData()
+const name = formData.get("name")
+const title = formData.get("title")
+
+console.log("action form data ", {name, title})
+
+}
+  
 
 export default function PostPage({loaderData, actionData, params, matches}: Route.ComponentProps) {
 
@@ -45,6 +56,7 @@ export default function PostPage({loaderData, actionData, params, matches}: Rout
         className="flex flex-col gap-2"
       >
         <input type="text" name="name" placeholder="Enter post name" />
+        <input type="text" name="title" placeholder="Enter post title" />
         <button type="submit">Add Post</button>
       </Form>
 
@@ -61,3 +73,5 @@ export default function PostPage({loaderData, actionData, params, matches}: Rout
     </div>
   );
 }
+
+
