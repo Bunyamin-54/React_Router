@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import type { Route } from "./+types/posts";
 
 const posts = [
   {
@@ -22,17 +23,27 @@ const posts = [
   },
 ];
 
-export default function PostPage() {
+
+ export async function loader() {
+   const res = await fetch("https://6a4d62d1e1cf82a4a17e544d.mockapi.io/Blogs");
+
+   console.log("loader data:", res);
+   return res.json();
+ }
+
+
+export default function PostPage({loaderData, actionData, params, matches}: Route.ComponentProps) {
+
   return (
     <div>
       <h1>Posts</h1>
-      {posts.map((post) => (
+      {loaderData?.map((post: any) => (
         <div key={post.id}>
           <Link
             to={`/posts/${post.id}`}
             className="underline underline-offset-2"
           >
-            {post.title}
+            {post.name}
           </Link>
         </div>
       ))}
